@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Dailythanthi</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <div class="top-navbar" style="background-color:#9a1518; width: 100%; height: 40px; display: flex ; gap: 60px; align-items: center; color: white; justify-content: space-between; position:fixed ; top: 0; z-index:1 ;">
+
+      <div class="top-icons" style="display: flex; gap: 30PX; padding-left: 10px;">
+        <h3> Daily Thanthi </h3>
+        <h3> E-Paper</h3>
+        <h3> DTNEXT</h3>
+        <h3> Thanthi TV</h3>
+      </div>  
+       
+       
+      <div class="animated-text"> 
+
+          தினத் <span> </span>
+
+      </div>
+      
+         
+
+      <div class="top-navbar-container">
+        <a href="#" style="margin-right: 15px;"> <i class="fa-solid fa-house" style="color: white;"></i> </a>
+        <a href="#" style="margin-right: 15px;" > <i class="fa-brands fa-facebook"  style="color: white;"></i>  </a>
+        <a href="#" style="margin-right: 15px;" > <i class="fa-brands fa-twitter" style="color: white;" ></i> </a>
+        <a href="#" style="margin-right: 15px;" > <i class="fa-brands fa-instagram"  style="color: white;"></i> </a>
+        <a href="#" style="color: white; text-decoration: none; margin-right: 10px;" > <i class="fa-brands fa-whatsapp" style="color: white;" ></i> :1234567894 </a>
+      </div>
+  </div>
+
+  <div class="logo_img_top" style="display: flex; margin-top: 20px;">
+
+       <img class="epaperimg" src=" https://media.dailythanthi.com/h-upload/2024/10/23/17130211-epaper2.webp" style="height: 60px; margin-left: 230px; margin-top: 50px; cursor: pointer;">
+       <img class="change" src="https://images.assettype.com/dailythanthi/2026-01-23/dhz0z9rk/dailythanthilogo.png" style="margin-left: 250px; height: 100px; margin-bottom: 20px; margin-top: 40px;" > 
+       <i class="fa-solid fa-bars" onclick="showNavbar()"> </i>  <img class="image11" src="https://images.assettype.com/dailythanthi/2026-01-23/dhz0z9rk/dailythanthilogo.png"> <i class="fa-solid fa-newspaper fa-fade" ></i> 
+      
+     <div class="app-logo-img">
+  
+       <img src="C:\Users\User\OneDrive\Pictures\New folder\WhatsApp Image 2025-09-05 at 22.17.37_d93ee57e.jpg" style="height: 40px;margin-left: 200px; margin-top: 50px; cursor: pointer; ">
+       <img src="C:\Users\User\OneDrive\Pictures\New folder\WhatsApp Image 2025-09-05 at 22.17.37_49d12ffe.jpg" style="height: 40px; margin-left: 20px; margin-top: 50px;">
+     </div>
+
+  </div>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="C:\Users\User\OneDrive\Pictures\New folder\WhatsApp Image 2025-09-05 at 19.51.34_d2f17afa.jpg" alt="logo">
+      <span> Daily Thanthi  </span>
+    </div>
+   
+    <ul class="nav-links">
+      <li><a href="#" onclick="fetchNews('tamil sports news')">Trending</a></li>
+      <li><a href="#" onclick="fetchNews('tamil gold rate')">Gold Rate</a></li>
+      <li><a href="#" onclick="fetchNews('tamil world news')">World News</a></li>
+      <li><a href="#" onclick="fetchNews('tamil cinema')">Cinema</a></li>
+      <li><a href="#" onclick="fetchNews('tamilnadu news')">Tamilnadu</a></li>
+      <li><a href="#" onclick="fetchNews('tamil technology news')">Technology</a></li>
+      <li><a href="#" onclick="fetchNews('tamil politics news')">Politics</a></li>
+    </ul>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search news...">
+      <button onclick="searchNews()"> <i class="fa fa-search"  style="color: white;"></i></button>
+    </div>
+  </nav> 
+
+  <div class="side-navbar">
+    <p style="text-align: right;" onclick="closeNavbar()">
+      <i class="fa-solid fa-xmark" > </i>
+    </p>
+
+    <div class="side-navbar-links">
+      <p class="side-navbar-link"> <a href=""> E-Paper </a> </p>
+      <p class="side-navbar-link"> <a href=""> Daily Thanthi </a> </p>
+      <p class="side-navbar-link"> <a href=""> DT NEXT </a> </p>
+      <p class="side-navbar-link"> <a href=""> Thanthi Tv </a> </p>
+      <p class="side-navbar-link"> <a href=""> Follow us </a> </p>
+
+      <img style="margin-left: 0px; margin-bottom:10px; cursor:pointer;;" src="C:\Users\User\Downloads\facebook.png">
+      <img style="margin-bottom:10px; cursor:pointer;" src="C:\Users\User\Downloads\whatsapp (1).png">
+      <img style="margin-bottom:10px; cursor:pointer;" src="C:\Users\User\Downloads\social.png">
+      <img style="margin-bottom:10px; cursor:pointer;" src="C:\Users\User\Downloads\twitter (1).png">
+    </div>
+  </div>
+
+  <div class="trending-wrapper">
+  <div class="trending-list" id="trending">
+    
+    <div class="trending-tag active" style="z-index: 0;">
+      LIVE <i class="fa-solid fa-video fa-fade"  style="color: white; margin-left:3px;"> </i>
+    </div>
+
+    
+    
+    <div class="trending-tag">ஜல்லிக்கட்டு</div>
+    <div class="trending-tag">தமிழ்நாடு</div>
+    <div class="trending-tag">அரசியல்</div>
+
+  </div>
+</div>
+
+  <h2 class="breakingnews" style="margin-top: 30px; margin-left: 75px; margin-bottom:10px;"> Breaking News</h2>
+
+  
+
+  <!-- News Container -->
+  <section class="news-container" id="newsContainer">
+    
+  </section>
+  
+  <hr style="margin-left: 20px; margin-right: 20px;">
+  
+  <div class="h2title">
+  <h2 style="margin-top: 40px; margin-left:40px;"> தமிழ்நாடு </h2>
+  </div>
+
+  <div class="card-container">
+    <div class="card">
+      <img src= "C:\Users\User\OneDrive\Pictures\500x300_44508890-10.webp">
+      <div class="card-content">
+        <h3> கூட்டணியில் இருந்து விலக நயினாரே காரணம் - டிடிவி தினகரன் பரபரப்பு குற்றச்சாட்டு</h3>
+        <p>எடப்பாடி பழனிசாமியை முதல்-அமைச்சர் வேட்பாளராக ஏற்கவே முடியாது என டிடிவி தினகரன் திட்டவட்டமாக கூறியுள்ளார்.திராவிட கட்சிகளை அழித்தால் தான் தங்களது எதிர்திராவிட கட்சிகளை அழித்தால் </p>
+          <a href="" class="btn">மேலும் படிக்க </a>
+      </div>
+    </div>
+     <div class="card">
+      <img src= "C:\Users\User\OneDrive\Pictures\500x300_44509060-untitled-3.webp">
+      <div class="card-content">
+        <h3> அதிமுகவை பலவீனமாக்கி வருகிறது பாஜக: தூத்துக்குடியில் தமிமுன் அன்சாரி பேட்டி</h3>
+        <p>திராவிட கட்சிகளை அழித்தால் தான் தங்களது எதிர் கால அரசியல் இருப்பை தக்க வைக்க முடியும் என்ற நிலைப்பாட்டில் பாஜக இருக்கிறது என மனிதநேய ஜனநாயக கட்சி தலைவர் தமிமுன் அன்சாரி கூறினார்.திராவிட கட்சிகளை அழித்தால் தான் தங்களது எதிர்</p>
+          <a href="" class="btn">மேலும் படிக்க </a>
+      </div>
+    </div>
+     <div class="card">
+      <img src="C:\Users\User\OneDrive\Pictures\500x300_44509063-11.webp">
+      <div class="card-content">
+        <h3> கார் ரேஸில் இந்திய சினிமாவை பிரதிபலிக்கும் அஜித்</h3>
+        <p>இந்திய சினிமாவை பிரதிபலிக்கும் விதமாக தனது ரேஸ் கார் மற்றும் ரேஸ் உடைகளில் ‘இந்தியன் பிலிம் இண்டஸ்ட்ரி’ என்ற லோகோவை அச்சிடவுள்ளதாக அஜித்குமார் அறிவித்துள்ளார்.திராவிட கட்சிகளை அழித்தால் தான் தங்களது எதிர்திராவிட கட்சிகளை அழித்தால் தான் தங்களது எதிர்திராவிட கட்சிகளை அழித்தால் தான் தங்களது எதிர் </p>
+          <a href="" class="btn"> மேலும் படிக்க</a>
+      </div>
+    </div>
+    <div class="card">
+      <img src= "C:\Users\User\OneDrive\Pictures\500x300_44509062-untitled-4.webp">
+      <div class="card-content">
+        <h3>தூத்துக்குடியில் ஆடுகள் திருடிய 2 பேர் கைது: கார், பணம் பறிமுதல் </h3>
+        <p>தூத்துக்குடி திரவியரத்தின நகர், முருகேசன் நகர் அதை சுற்றி உள்ள பகுதிகளில் ஆடுகள் அடிக்கடி திருட்டுப் போனது.திராவிட கட்சிகளை அழித்தால் தான் தங்களது எதிர்திராவிட கட்சிகளை அழித்தால் தான் தங்களது எதிர்திராவிட கட்சிகளை அழித்தால் தான் தங்களது எதிர்திராவிட கட்சிகளை அழித்தால் தான் தங்களது எதிர்திராவிட கட்சிகளை அழித்தால் தான் தங்களது எதிர் </p>
+          <a href="" class="btn"> மேலும் படிக்க</a>
+      </div>
+    </div>
+     <div class="card">
+      <img src="https://media.dailythanthi.com/h-upload/2025/09/07/500x300_44509059-edappadi-palanisami.webp"  >திராவிட கட்சிகளை அழித்தால் தான் தங்களது எதிர்
+      <div class="card-content">
+        <h3>மதுரை விமான நிலையத்திற்கு முத்துராமலிங்க தேவர் பெயர் வைக்க நடவடிக்கை- எடப்பாடி பழனிசாமி </h3>
+        <p> மதுரை விமான நிலையத்திற்கு பசும்பொன் முத்துராமலிங்கத் தேவர் பெயரை சூட்ட நடவடிக்கை எடுக்கப்படும் என்று அதிமுக எடப்பாடி பழனிசாமி வாக்குறுதி</p>
+          <a href="" class="btn">மேலும் படிக்க </a>
+      </div>
+    </div>
+    <div class="card">
+      <img src= "https://media.dailythanthi.com/h-upload/2025/09/07/500x300_44509044-ka.webp">
+      <div class="card-content">
+        <h3>ரஜினிகாந்துடன் இணைவதை உறுதிப்படுத்திய கமல்ஹாசன்</h3>
+        <p> லோகேஷ் படத்தில் ரஜினிகாந்துடன் இணைவதை கமல்ஹாசன் உறுதிப்படுத்தி இருக்கிறார்.லோகேஷ் படத்தில் ரஜினிகாந்துடன் இணைவதை கமல்ஹாசன் உறுதிப்படுத்தி இருக்கிறார்.லோகேஷ் படத்தில் ரஜினிகாந்துடன் இணைவதை கமல்ஹாசன் உறுதிப்படுத்தி இருக்கிறார்.லோகேஷ் படத்தில் ரஜினிகாந்துடன் இணைவதை கமல்ஹாசன் உறுதிப்படுத்தி இருக்கிறார்.லோகேஷ் படத்தில் ரஜினிகாந்துடன் </p>
+          <a href="" class="btn"> மேலும் படிக்க</a>
+      </div>
+    </div>
+     <div class="card">
+      <img src="https://media.dailythanthi.com/h-upload/2025/09/07/500x300_44509070-udhay-nidhi-stalin.webp ">
+      <div class="card-content">
+        <h3>விண்ணப்பித்த அனைவருக்கும் மகளிர் உரிமைத்தொகை: உதயநிதி ஸ்டாலின் </h3>
+        <p> உங்களுடன் ஸ்டாலின் முகாமில் விண்ணப்பித்தவர்களுக்கு மகளிர் உரிமைத் தொகை கிடைக்கும் என துணை முதலமைச்சர் உதயநிதி ஸ்டாலின் தெரிவித்தார்.உங்களுடன் ஸ்டாலின் முகாமில் விண்ணப்பித்தவர்களுக்கு மகளிர் உரிமைத் தொகை கிடைக்கும் என துணை முதலமைச்சர் உதயநிதி ஸ்டாலின் தெரிவித்தார்.</p>
+          <a href="" class="btn"> மேலும் படிக்க</a>
+      </div>
+    </div>
+     <div class="card">
+      <img src="https://media.dailythanthi.com/h-upload/2025/09/07/500x300_44509061-senktootayan-pti.webp">
+      <div class="card-content">
+        <h3> சசிகலா, ஓ.பி.எஸ்.சை சந்திக்க செங்கோட்டையன் திட்டம்?</h3>
+        <p>செங்கோட்டையனின் அடுத்த கட்ட நடவடிக்கை என்னவாக இருக்கும் என்பது குறித்து கட்சி நிர்வாகிகள் இடையே பரபரப்பாக பேசப்பட்டு வருகிறது.செங்கோட்டையனின் அடுத்த கட்ட நடவடிக்கை என்னவாக இருக்கும் என்பது குறித்து கட்சி நிர்வாகிகள் இடையே பரபரப்பாக பேசப்பட்டு வருகிறது.செங்கோட்டையனின் அடுத்த கட்ட நடவடிக்கை என்னவாக </p>
+          <a href="" class="btn"> மேலும் படிக்க</a>
+      </div>
+    </div>
+  </div>
+
+  <hr  style="margin-left: 20px; margin-right: 20px;">
+  
+  <div class="h2title2">
+  <h2 style="margin-top: 40px; margin-left: 670px;"> புகார்பெட்டி </h2>
+  </div>
+
+  <div class="scroll-container">
+    <div class="scroll-content">
+      <div class="cardd">
+        <img src= "C:\Users\User\OneDrive\Pictures\New folder\WhatsApp Image 2025-09-07 at 20.32.10_741571b0.jpg" alt="news">
+        <p>குண்டும் குழியுமான சாலை </p>
+      </div>
+      <div class="cardd">
+        <img src="C:\Users\User\OneDrive\Pictures\New folder\WhatsApp Image 2025-09-07 at 20.32.10_1a7c9e04.jpg" alt="news">
+        <p>மழைநீர் வடிகால் பணி தாமதமானால் நோட்டீஸ் </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="complaint-box">
+    <button class="cbox"> புகார் பதிவு </button>
+    <button class="cbox2">மேலும் புகார் </button>
+  </div>
+
+  <hr style="margin-top: 40px; margin-left: 50px; margin-right: 50px;">
+
+  <section class="inspiration">
+      <h2 class="section__header" style="margin-left: 300px;">We're available across multiple digital platforms</h2>
+      <p class="section__description" style="margin-left: 400px;padding-bottom: 30px;">
+        to stay connected with you anytime, anywhere.
+      </p>
+      <div class="inspiration__wrapper">
+        <div class="inspiration__card">
+          <img src="C:\Users\User\OneDrive\Pictures\dina-thanthi-tirupur-ho-tirupur-newspaper-lce5cdt.jpg" alt="inspiration" />
+          <h4>DAILY THANTHI </h4>
+          <p>Newspaper publications</p>  
+        </div>
+        <div class="inspiration__card">
+          <img src="C:\Users\User\OneDrive\Pictures\OIP (2).webp" alt="inspiration" />
+          <h4>THANTHI ONE </h4>
+          <p>Tamil entertainment channel</p>
+        </div>
+        <div class="inspiration__card">
+          <img src= "C:\Users\User\OneDrive\Pictures\unnamed.png" alt="inspiration" />
+          <h4>DT NEXT</h4>
+          <p>The english  daily news paper</p>
+        </div>
+        <div class="inspiration__card">
+          <img src= "C:\Users\User\OneDrive\Pictures\OIP (1).webp"  alt="inspiration" />
+          <h4>THANTHI TV</h4>
+          <p>watch tamil news on thanthi tv</p>
+        </div>
+        <div class="inspiration__card">
+          <img src= "C:\Users\User\OneDrive\Pictures\red-arrow-pointing-left-right_1294168-10241.jpg" alt="inspiration" />
+          <h4>UPCOMING </h4>
+          <p>LIVE</p>
+        </div>
+        <div class="inspiration__card">
+          <img src="C:\Users\User\OneDrive\Pictures\OIP (3).webp" alt="inspiration" />
+          <h4>Breaking News</h4>
+          <p>🔴LIVE</p>
+        </div>
+        <div class="inspiration__card">
+          <img src="C:\Users\User\OneDrive\Pictures\OIP (3).webp" alt="inspiration" />
+          <h4>Sports news</h4>
+          <p>🔴LIVE</p>
+        </div>
+        <div class="inspiration__card">
+          <img src= "C:\Users\User\OneDrive\Pictures\OIP (3).webp"  alt="inspiration" />
+          <h4>cinema World</h4>
+          <p>🔴LIVE</p>
+        </div>
+    </section>
+
+    <hr style="margin-top: 10px; margin-left: 50px; margin-right: 50px;">
+
+    <div class="h2title2">
+    <h2 class="webstories" style="margin-top: 40px; margin-left: 650px;"> வெப்ஸ்டோரி </h2>
+    </div>
+    
+    <div class="scroll-box">
+      <div class="card3"><img src="C:\Users\User\OneDrive\Pictures\New folder\WhatsApp Image 2025-09-06 at 16.52.39_dd4e72d3.jpg" alt="Image 1"></div>
+      <div class="card3"><img src="C:\Users\User\OneDrive\Pictures\New folder\WhatsApp Image 2025-09-06 at 16.52.40_0a237130.jpg" alt="Image 2"></div>
+      <div class="card3"><img src="C:\Users\User\OneDrive\Pictures\New folder\WhatsApp Image 2025-09-06 at 16.52.41_08b55f40.jpg" alt="Image 3"></div>
+      <div class="card3"><img src="C:\Users\User\OneDrive\Pictures\New folder\WhatsApp Image 2025-09-06 at 16.52.40_142998d2.jpg" alt="Image 4"></div>
+      <div class="card3"><img src="C:\Users\User\OneDrive\Pictures\New folder\WhatsApp Image 2025-09-06 at 16.52.40_9d1ba8bf.jpg" alt="Image 5"></div>
+      <div class="card3"><img src="C:\Users\User\OneDrive\Pictures\New folder\WhatsApp Image 2025-09-08 at 22.00.50_dbc6a9da.jpg" alt="Image 6"></div>
+      <div class="card3"><img src="C:\Users\User\OneDrive\Pictures\New folder\WhatsApp Image 2025-09-08 at 22.00.49_7e5ada20.jpg" alt="Image 7"></div>
+      <div class="card3"><img src="C:\Users\User\OneDrive\Pictures\New folder\WhatsApp Image 2025-09-08 at 22.00.49_6d24a04f.jpg" alt="Image 8"></div>
+      <div class="card3"><img src="C:\Users\User\OneDrive\Pictures\New folder\WhatsApp Image 2025-09-08 at 22.00.50_31970960.jpg" alt="Image 9"></div>
+      <div class="card3"><img src="C:\Users\User\OneDrive\Pictures\New folder\WhatsApp Image 2025-09-08 at 22.00.51_a3d14cf0.jpg"  alt="Image 10"></div>
+      <div class="card3"><img src="C:\Users\User\OneDrive\Pictures\New folder\WhatsApp Image 2025-09-08 at 22.00.50_84cc0445.jpg" alt="Image 11"></div>
+      <div class="card3"><img src="C:\Users\User\OneDrive\Pictures\New folder\WhatsApp Image 2025-09-06 at 16.52.41_6f680bc1.jpg" alt="Image 12"></div>
+   </div>
+
+    
+   
+   <div class="tamilnews-container">
+      <!-- Tamil Nadu News -->
+    <div class="tamilnews-box">
+      <h2>மாநில செய்திகள்</h2>
+      <div class="tamilnews-item">
+        <img src="https://media.dailythanthi.com/h-upload/2025/09/07/500x300_44509083-state-08.webp" alt="news">
+        <h3>தொடர் விடுமுறை; சாரல் மழைக்கு நடுவே கொடைக்கானலில் குவிந்த சுற்றுலா பயணிகள் </h3>
+        <p>செப்டம்பர் 6, 11:25 pm</p>
+        <hr style="margin-top: 20px;">
+        <h3>கேரளா: பாலக்காட் சுங்கச்சாவடி திறப்பு </h3>
+        <p>செப்டம்பர் 6, 11:25 pm </p>
+        <hr style="margin-top: 20px;">
+        <h3>சேலம்: ஓடும் ரெயிலில் பெண்ணிடம் நகை, பணம் பறித்த வாலிபர் கைது </h3>
+        <p>செப்டம்பர் 6, 11:29 pm </p>
+        <hr style="margin-top: 20px;">
+        <h3> தேர்தல் சுற்றுப்பயணம்: நீதிமன்றத்தை நாட தவெக தலைவர் விஜய் முடிவு? </h3>
+        <p>செப்டம்பர் 6, 11:50 pm </p>
+        <hr style="margin-top: 20px;">
+        <h3>கோவையில் எடப்பாடி பழனிசாமி மீண்டும் பிரசாரம்: இன்று ரோடு ஷோ செல்கிறார் </h3>
+        <p>செப்டம்பர் 6, 11:55 pm </p>
+      </div>
+    </div>
+
+    <!-- National News -->
+    <div class="tamilnews-box">
+      <h2>தேசிய செய்திகள்</h2>
+      <div class="tamilnews-item">
+        <img src="https://media.dailythanthi.com/h-upload/2025/09/09/500x300_44509449-6.webp" alt="news">
+        <h3>கேரளா: பாலக்காட் சுங்கச்சாவடி திறப்பு</h3>
+        <p>செப்டம்பர் 6, 9:27 pm</p>
+         <hr style="margin-top: 20px;">
+        <h3> காஷ்மீரில் துப்பாக்கிச்சண்டை: 2 வீரர்கள் வீர மரணம் - 2 பயங்கரவாதிகள் சுட்டுக்கொலை </h3>
+        <p>செப்டம்பர் 6, 11:25 pm </p>
+        <hr style="margin-top: 20px;">
+        <h3> முன் ஜாமீன் கோரி நேரடியாக ஐகோர்ட்டை நாட முடியுமா? உச்ச நீதிமன்றம் விசாரணை</h3>
+        <p>செப்டம்பர் 6, 11:29 pm </p>
+        <hr style="margin-top: 20px;">
+        <h3> ஜெருசலேம் பயங்கரவாத தாக்குதல் - பிரதமர் மோடி கண்டனம்</h3>
+        <p>செப்டம்பர் 6, 11:50 pm </p>
+        <hr style="margin-top: 20px;">
+        <h3>ரேவந்த் ரெட்டி மீதான அவதூறு வழக்கு ரத்துக்கு எதிரான மனு தள்ளுபடி; சுப்ரீம் கோர்ட்டு </h3>
+        <p>செப்டம்பர் 6, 11:55 pm </p>
+      </div>
+    </div>
+
+    <!-- World News -->
+    <div class="tamilnews-box">
+      <h2>உலக செய்திகள்</h2>
+      <div class="tamilnews-item">
+        <img src="https://media.dailythanthi.com/h-upload/2025/09/08/44509371-trump-donald.webp" alt="news">
+        <h3>காசாவில் இடிந்து விழுந்த கட்டிடம்</h3>
+        <p>செப்டம்பர் 6, 9:27 pm</p>
+        <hr style="margin-top: 20px;">
+        <h3>நம்பிக்கை வாக்கெடுப்பில் தோல்வி... கவிழ்ந்தது பிரான்ஸ் அரசு - பிரதமர் பிராங்காய்ஸ் ராஜினாமா </h3>
+        <p>செப்டம்பர் 6, 11:25 pm</p>
+        <hr style="margin-top: 20px;">
+        <h3> நேபாளத்தில் சமூக வலைத்தளங்கள் மீதான தடை நீக்கம்</h3>
+        <p>செப்டம்பர் 6, 11:27 pm </p>
+        <hr style="margin-top: 20px;">
+        <h3> பார்வையாளர்களை கவர்ந்த நாய் சர்பிங் போட்டி </h3>
+        <p>செப்டம்பர் 6, 11:29 pm </p>
+        <hr style="margin-top: 20px;">
+        <h3>இந்தியாவுக்கு மேலும் கூடுதல் வரி விதிக்க அமெரிக்கா முடிவு </h3>
+        <p>செப்டம்பர் 6, 11:50 pm </p>
+      </div>
+    </div>
+
+  </div>
+
+  <p style="margin-top: 50px; padding-left: 700px;"> Advertisement</p>
+
+   <div class="tamilnews-container">
+      <!-- Tamil Nadu News -->
+    <div class="tamilnews-box">
+      <h2>விளையாட்டு  </h2>
+      <div class="tamilnews-item">
+        <img src="https://media.dailythanthi.com/h-upload/2025/09/09/500x300_44509454-acup.webp" alt="news">
+        <h3>ஆசிய கோப்பை கிரிக்கெட்: அதிக முறை சாம்பியன் பட்டம் வென்ற அணி எது தெரியுமா...? </h3>
+        <p>செப்டம்பர் 6, 11:25 pm</p>
+        <hr style="margin-top: 20px;">
+        <h3> ஜூனியர் உலகக்கோப்பை ஆக்கி: போட்டி அட்டவணை வெளியீடு</h3>
+        <p>செப்டம்பர் 6, 11:25 pm </p>
+        <hr style="margin-top: 20px;">
+        <h3>டி20 கிரிக்கெட்: ஷிவம் துபே போன்ற ஆல் ரவுண்டர்கள் அதை செய்வது முக்கியம் - இந்திய பயிற்சியாளர் </h3>
+        <p>செப்டம்பர் 6, 11:29 pm </p>
+        <hr style="margin-top: 20px;">
+        <h3> சச்சின் - விராட் கோலி இருவரில் யார் சிறந்தவர்..? வெஸ்ட் இண்டீஸ் முன்னாள் வீரர் தேர்வு </h3>
+        <p>செப்டம்பர் 6, 11:50 pm </p>
+        <hr style="margin-top: 20px;">
+        <h3> அமெரிக்க ஓபன் டென்னிஸ்: சாம்பியன் பட்டம் வென்றவர்களுக்கு பரிசுத்தொகை எவ்வளவு..? </h3>
+        <p>செப்டம்பர் 6, 11:55 pm </p>
+      </div>
+    </div>
+
+    <!-- National News -->
+    <div class="tamilnews-box">
+      <h2>சினிமா  </h2>
+      <div class="tamilnews-item">
+        <img src="https://media.dailythanthi.com/h-upload/2025/09/09/500x300_44509450-8.gif " alt="news">
+        <h3>  சினிமாவுக்காக எந்த ரிஸ்க்கும் எடுக்க தயாராக இருக்கிறேன்- நடிகர் சர்வா</h3>
+        <p>செப்டம்பர் 6, 9:27 pm</p>
+         <hr style="margin-top: 20px;">
+        <h3> ஷைன் டாம் சாக்கோ நடித்த 'மீஷா' படம்.. ஓடிடியில் வெளியாவது எப்போது?</h3>
+        <p>செப்டம்பர் 6, 11:25 pm </p>
+        <hr style="margin-top: 20px;">
+        <h3> என் வாழ்க்கையை உயர்த்திய சினிமாவுக்கு என்றென்றும் உண்மையாக இருப்பேன்- நடிகை தேஜூ அஸ்வினி </h3>
+        <p>செப்டம்பர் 6, 11:29 pm </p>
+        <hr style="margin-top: 20px;">
+        <h3>“யோலோ” படத்தின் ஸ்னீக் பீக் வீடியோ வெளியானது </h3>
+        <p>செப்டம்பர் 6, 11:50 pm </p>
+        <hr style="margin-top: 20px;">
+        <h3> அந்த நிகழ்ச்சியால் என் சினிமா வாழ்க்கையே நாசமாகி விட்டது- புலம்பும் நடிகை </h3>
+        <p>செப்டம்பர் 6, 11:55 pm </p>
+      </div>
+    </div>
+
+    <!-- World News -->
+    <div class="tamilnews-box">
+      <h2>ஆன்மிகம்  </h2>
+      <div class="tamilnews-item">
+        <img src= "https://media.dailythanthi.com/h-upload/2025/09/08/500x300_44509286-milagai-yagam.webp" alt="news">
+        <h3>இந்த வார விசேஷங்கள்: 9-9-2025 முதல் 15-9-2025 வரை </h3>
+        <p>செப்டம்பர் 6, 9:27 pm</p>
+        <hr style="margin-top: 20px;">
+        <h3> பௌர்ணமி சிறப்பு பூஜைகள்: ஓசூர் பிரத்தியங்கிரா தேவி கோவிலில் மிளகாய் வத்தல் யாகம்</h3>
+        <p>செப்டம்பர் 6, 11:25 pm</p>
+        <hr style="margin-top: 20px;">
+        <h3> காளையார் கோவில்: புனித ஆரோக்கிய அன்னை ஆலய திருவிழா </h3>
+        <p>செப்டம்பர் 6, 11:27 pm </p>
+        <hr style="margin-top: 20px;">
+        <h3> நீதியை நிலைநாட்டும் தர்மலிங்கேஸ்வரர்</h3>
+        <p>செப்டம்பர் 6, 11:29 pm </p>
+        <hr style="margin-top: 20px;">
+        <h3> முக்கடல் சங்கமம் மகா சமுத்திர தீர்த்த ஆரத்தி: கன்னியாகுமரியில் நடராஜர் வாகன பவனி</h3>
+        <p>செப்டம்பர் 6, 11:50 pm </p>
+      </div>
+    </div>
+
+  </div>
+
+  <p style="margin-top: 50px; padding-left: 700px;"> Advertisement</p>
+   
+   <div class="tamilnews-container">
+      <!-- Tamil Nadu News -->
+    <div class="tamilnews-box">
+      <h2>ஜோதிடம் </h2>
+      <div class="tamilnews-item">
+        <img src="https://media.dailythanthi.com/h-upload/2025/09/08/500x300_44509399-vel.webp" alt="news">
+        <h3>இன்றைய ராசிபலன் - 09.09.2025 </h3>
+        <p>செப்டம்பர் 6, 11:25 pm</p>
+        <hr style="margin-top: 20px;">
+        <h3>இன்றைய ராசிபலன் - 08.09.2025</h3>
+        <p>செப்டம்பர் 6, 11:25 pm </p>
+        <hr style="margin-top: 20px;">
+        <h3> வார ராசிபலன் - 07.09.2025 முதல் 13.09.2025 வரை </h3>
+        <p>செப்டம்பர் 6, 11:29 pm </p>
+        <hr style="margin-top: 20px;">
+        <h3> இன்றைய ராசிபலன் - 07.09.2025 </h3>
+        <p>செப்டம்பர் 6, 11:50 pm </p>
+        <hr style="margin-top: 20px;">
+        <h3>இன்றைய ராசிபலன் - 06.09.2025</h3>
+        <p>செப்டம்பர் 6, 11:55 pm </p>
+      </div>
+    </div>
+
+    <!-- National News -->
+    <div class="tamilnews-box">
+      <h2> கல்வி/வேலைவாய்ப்பு</h2>
+      <div class="tamilnews-item">
+        <img src="https://media.dailythanthi.com/h-upload/2025/09/09/500x300_44509405-1.gif" alt="news">
+        <h3>எல்லை பாதுகாப்பு படையில் வேலை: 1,121 பணியிடங்கள்</h3>
+        <p>செப்டம்பர் 6, 9:27 pm</p>
+         <hr style="margin-top: 20px;">
+        <h3> ஆயுஷ் துணை மருத்துவ பட்டயப்படிப்புக்கான மாணவர் சேர்க்கை - விண்ணப்பங்கள் வரவேற்பு </h3>
+        <p>செப்டம்பர் 6, 11:25 pm </p>
+        <hr style="margin-top: 20px;">
+        <h3> மத்திய அரசு நிறுவனத்தில் வேலை: என்ஜினீயர்களுக்கு அருமையான வாய்ப்பு</h3>
+        <p>செப்டம்பர் 6, 11:29 pm </p>
+        <hr style="margin-top: 20px;">
+        <h3> டெட் தேர்வுக்கு விண்ணப்பிக்க கால அவகாசம் நீட்டிப்பு</h3>
+        <p>செப்டம்பர் 6, 11:50 pm </p>
+        <hr style="margin-top: 20px;">
+        <h3>டெட் தேர்வுக்கு விண்ணப்பிக்க இன்றே கடைசி நாள்.!</h3>
+        <p>செப்டம்பர் 6, 11:55 pm </p>
+      </div>
+    </div>
+
+    <!-- World News -->
+    <div class="tamilnews-box">
+      <h2> ஆரோக்யம் </h2>
+      <div class="tamilnews-item">
+        <img src="https://media.dailythanthi.com/h-upload/2025/09/07/500x300_44508927-banana.webp" alt="news">
+        <h3>தினமும் எத்தனை வாழைப்பழம் சாப்பிடலாம்? </h3>
+        <p>செப்டம்பர் 6, 9:27 pm</p>
+        <hr style="margin-top: 20px;">
+        <h3>  கல்லீரலை பாதுகாக்க செய்ய வேண்டியது என்ன?</h3>
+        <p>செப்டம்பர் 6, 11:25 pm</p>
+        <hr style="margin-top: 20px;">
+        <h3>பெருஞ்சீரகம் சாப்பிட்டால் இத்தனை நன்மைகளா..?</h3>
+        <p>செப்டம்பர் 6, 11:27 pm </p>
+        <hr style="margin-top: 20px;">
+        <h3>மனித உடலின் கடினமான பகுதி!  </h3>
+        <p>செப்டம்பர் 6, 11:29 pm </p>
+        <hr style="margin-top: 20px;">
+        <h3>ஏலக்காய் சாப்பிட்டால் இத்தனை நன்மைகளா..? இவ்வளவு நாள் இது தெரியாம போச்சே..!  </h3>
+        <p>செப்டம்பர் 6, 11:50 pm </p>
+      </div>
+    </div>
+</div>
+
+<hr style="margin-top: 80px; margin-left: 50px; margin-right: 50px;"> 
+  
+<section class="footer">
+        <div class="footer-content">
+          <img src="C:\Users\User\OneDrive\Pictures\daily-thanthi-500x500.webp" style="width: 200px;">
+          
+        
+          <div class="footer-content-logo" style="display: flex; margin-top: 20px; gap: 20px; margin-left: 20px; ">
+            <li> <a href="#" style="font-size: 25px;"><i class="fa-brands fa-facebook"></i> </a></li>
+            <li> <a href="#" style="font-size: 25px;"><i class="fa-brands fa-instagram"></i> </a></li>
+            <li> <a href="#" style="font-size: 25px;"><i class="fa-brands fa-youtube"></i> </a></li>
+            <li> <a href="#" style="font-size: 25px;"><i class="fa-brands fa-twitter"></i> </a></li>
+          </div>
+        </div>  
+        
+    
+        <div class="footer-content" style="margin-left: 50px;">
+          <h3>செய்திகள்</h3>
+          <li> <a href="#">  தேசிய செய்திகள் </a></li>
+          <li> <a href="#">  உலக செய்திகள் </a></li>
+          <li> <a href="#">  மாநில செய்திகள் </a></li>
+          <li> <a href="#">  சிறப்பு கட்டுரைகள் </a></li>
+        </div>
+
+        <div class="footer-content"  style="margin-left: 50px;">
+          <h3>விளையாட்டு </h3>
+          <li> <a href="#"> கிரிக்கெட்</a></li>
+          <li> <a href="#"> கால்பந்து</a></li>
+          <li> <a href="#"> டென்னிஸ்</a></li>
+          <li> <a href="#"> ஹாக்கி</a></li>
+        </div>
+
+        <div class="footer-content" style="margin-left: 50px;" >
+          <h3>ஸ்பெஷல்ஸ் </h3>
+          <li> <a href="#"> டோக்கியோ </a></li>
+          <li> <a href="#">ஒலிம்பிக்ஸ் </a></li>
+          <li> <a href="#"> ஐபிஎல் 2022</a></li>
+        </div>
+
+        <div class="footer-content"  style="margin-left: 50px;" >
+          <h3>Group sites </h3>
+          <li> <a href="#"> Tamil News </a></li>
+          <li> <a href="#">Tamil News Live </a></li>
+          <li> <a href="#"> English News Today</a></li>
+        </div>
+    
+</section>
+
+<div class="laptopend">
+<h5 style="margin-left: 300px;">எங்களைப்பற்றி | தனித்தன்மை பாதுகாப்பு | தொடர்புகொள்ள | வலைத்தள தொகுப்பு | ஆலோசனைகள் | வேலைவாய்ப்பு </h5>
+<h5 style="margin-left: 550px; margin-top: 10px;">Paper Ad Tariff | Web Ad Tariff | Terms & Conditions (E-paper) </h5>
+
+<hr style="margin-top: 20px; margin-left: 50px; margin-right: 50px;"> 
+
+<h5 style="margin-left: 550px; margin-top: 10px;">காப்புரிமை 2024, © The Thanthi Trust Powered by Hocalwire  </h5>
+</div>
+
+<!-- Bottom Text -->
+    <div class="bottom-text">
+      <p>எங்களைப்பற்றி | தனித்தன்மை பாதுகாப்பு | </p>
+        <P style="margin-left: 10px;"> தொடர்புகொள்ள | வலைத்தள தொகுப்பு | </P>
+         <p style="margin-left: 30px;">  ஆலோசனைகள் | வேலைவாய்ப்பு</p>
+          <p style="margin-top: 10px; font-size:11px; margin-left:10px;"> Paper Ad Tariff | Web Ad Tariff | Terms & Conditions (E-paper) </p>
+    </div>
+    
+    <hr style="margin-top: 20px;"> 
+
+    <!-- Footer -->
+    <div class="footerr">
+      காப்புரிமை 2024, © The Thanthi Trust Powered by Hocalwire 
+    </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
