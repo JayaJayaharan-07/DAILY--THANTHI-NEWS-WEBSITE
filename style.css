@@ -1,8 +1,24 @@
-* {
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+}
+
+.fa, .fa-solid, .fa-regular, .fa-light, .fa-thin, .fa-duotone {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
+
+.fa-brands {
+  font-family: "Font Awesome 6 Brands";
+  font-weight: 400;
+}
+
+/* FIX: overflow-x only on html/body, not * (avoids position:fixed bugs) */
+html, body {
   overflow-x: hidden;
 }
 
@@ -11,61 +27,226 @@ body {
   color: #333;
 }
 
-.top-icons h3:hover{
-    transform: scale(1.1);
-    cursor: pointer;
+/* ============================================
+   TOP NAVBAR
+   ============================================ */
+.top-navbar {
+  background-color: #9a1518;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  color: white;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  padding: 0 10px;
 }
+
+.top-icons {
+  display: flex;
+  gap: 20px;
+  padding-left: 10px;
+  align-items: center;
+}
+
+.top-icons h3 {
+  font-size: 14px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.top-icons h3:hover {
+  transform: scale(1.1);
+}
+
+.animated-text {
+  font-size: 20px;
+  font-weight: 600;
+  min-width: 200px;
+  white-space: nowrap;
+  margin-right: 70px;
+}
+
+.animated-text span {
+  position: relative;
+}
+
+.animated-text span::before {
+  content: "thanthi";
+  color: white;
+  animation: words 20s infinite;
+}
+
+.animated-text span::after {
+  content: "";
+  position: absolute;
+  width: calc(100% + 8px);
+  height: 30px;
+  background-color: #9a1518;
+  border-left: 2px solid #9a1518;
+  right: -8px;
+  animation: cursor 0.8s infinite, typing 20s steps(14) infinite;
+}
+
+@keyframes cursor {
+  to { border-left: 2px solid transparent; }
+}
+
+@keyframes words {
+  0%, 20%  { content: "thanthi..."; }
+  21%, 40% { content: "தந்தி..."; }
+}
+
+@keyframes typing {
+  10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90%, 95% { width: 0; }
+  5%, 20%, 25%, 40%, 45%, 60%, 65%, 80%, 85% { width: calc(100% + 8px); }
+}
+
+
+
+.top-navbar-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 10px;
+  flex-shrink: 0;
+}
+
+.top-navbar-container a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* ============================================
+   LOGO AREA
+   ============================================ */
+.logo_img_top {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 60px; /* clear fixed top-navbar (40px) + spacing */
+  padding: 10px 20px;
+  gap: 20px;
+}
+
+.epaperimg {
+  height: 60px;
+  cursor: pointer;
+  margin-left: 200px;
+}
+
+.change {
+  height: 90px;
+  margin-left: 60px;
+}
+
+.app-logo-img{
+  gap: 30px;
+}
+/* Mobile-only header elements — hidden on desktop */
+.mobile-header {
+  display: none;
+  align-items: center;
+  gap: 15px;
+}
+
+.fa-bars {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.fa-newspaper {
+  font-size: 22px;
+}
+
+.image11 {
+  width: 160px;
+}
+
+.app-logo-img {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: auto;
+}
+
+.app-logo-img img {
+  height: 38px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.app-logo-img img:hover {
+  transform: scale(1.05);
+}
+
+/* ============================================
+   MAIN NAVBAR
+   ============================================ */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: rgb(255, 241, 240);
-  padding: 15px 30px;
-  box-shadow: 0 4px 5px 4px #d30d0d;
+  padding: 12px 24px;
+  box-shadow: 0 4px 5px 4px #bb5f5f;
   border-radius: 30px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 0 10px 10px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .logo {
   display: flex;
   align-items: center;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 22px;
   color: #9a1518;
+  flex-shrink: 0;
 }
 
 .logo img {
   width: 30px;
+  height: 30px;
+  object-fit: contain;
   margin-right: 10px;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 .nav-links li a {
   text-decoration: none;
   color: #333;
   font-weight: 500;
+  font-size: 14px;
+  white-space: nowrap;
 }
 
 .nav-links li a:hover {
-  color: #d30d0d ;
-  text-decoration: none;
+  color: #d30d0d;
 }
 
 .search-box {
   display: flex;
   gap: 5px;
+  flex-shrink: 0;
 }
 
 .search-box input {
-  padding: 8px;
-  border: 2px solid  #d30d0d ;
+  padding: 8px 12px;
+  border: 2px solid #d30d0d;
   border-radius: 4px;
+  width: 180px;
 }
 
 .search-box button {
@@ -80,79 +261,136 @@ body {
 .search-box button:hover {
   background: #9a1518;
 }
-.top-navbar img{
-  width: 150px;
-  height: 40px;
-  margin-right: 180px;
+
+/* ============================================
+   SIDE NAVBAR
+   ============================================ */
+.side-navbar {
+  background: linear-gradient(180deg, #ff2f2f, #6c0606);
+  width: 280px;
+  max-width: 80vw;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  padding: 20px 15px;
+  color: white;
+  z-index: 200;
+  transition: left 0.4s ease;
+}
+
+.close-btn {
+  text-align: right;
+  font-size: 22px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.side-navbar-link {
+  margin-bottom: 25px;
+  font-size: 16px;
+}
+
+.side-navbar-links a {
+  text-decoration: none;
+  color: white;
+}
+
+.side-navbar-links a:hover {
+  text-decoration: underline;
+}
+
+.side-social-icons {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  color: white;
+  font-size: 22px;
+}
+
+/* ============================================
+   TRENDING TAGS (mobile only by default)
+   ============================================ */
+.trending-wrapper {
+  overflow: hidden;
+  padding: 10px 15px;
+  background: white;
+  display: none; /* shown via media query on mobile */
+  margin-top: 10px;
+}
+
+.trending-list {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.trending-list::-webkit-scrollbar {
   display: none;
 }
-.app-logo-img img:hover{
-   transform: scale(1.1);
-    cursor: pointer;
-}
-.animated-text{
-  font-size: 20px;
-  font-weight: 600;
-  min-width: 280px;
-  margin-right: 50px;
 
+.trending-tag {
+  white-space: nowrap;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  font-size: 13px;
+  color: black;
+  background: #fff;
+  cursor: pointer;
+  user-select: none;
+  flex-shrink: 0;
 }
-.animated-text span{
+
+.trending-tag.active {
+  border-radius: 10px;
+  background: linear-gradient(180deg, #ff2f2f, #6c0606);
+  color: #fff;
+  border-color: #e53935;
   position: relative;
 }
-.animated-text span::before{
-  content: "thanthi";
-  color: white;
-  animation: words 20s infinite;
-}
-.animated-text span::after{
-  content: "";
+
+.trending-tag.active::after {
+  content: '';
   position: absolute;
-  width: calc(100% + 8px);
-  height: 30px;
-  background-color: #9a1518;
-  border-left: 2px solid #9a1518;
-  right: -8px;
-  animation: cursor .8s infinite, typing 20s steps(14) infinite;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left: 10px solid #e53935;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
 }
 
-@keyframes cursor {
-  to{
-    border-left: 2px solid #ff7f5000;
-  }
-}
-@keyframes words {
-  0%,20%{
-     content: "thanthi...";
-  }
-  21%,40%{
-     content: "தந்தி...";
-  }
-}
-@keyframes typing {
-  10%,15%,30%,35%,50%,55%,70%,75%,90%,95%{
-    width: 0;
-  }
-  5%,20%,25%,40%,45%,60%,65%,80%,85%{
-    width: calc(100% + 8px);
-  }
+/* ============================================
+   BREAKING NEWS HEADING
+   ============================================ */
+.breakingnews {
+  margin-top: 30px;
+  margin-left: 40px;
+  margin-bottom: 10px;
+  font-size: 22px;
+  color: #9a1518;
 }
 
-/* News grid */
-
+/* ============================================
+   NEWS GRID (API-fetched cards)
+   ============================================ */
 .news-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
-  padding: 5px;
+  padding: 10px 20px;
 }
 
 .news-card {
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
+  cursor: pointer;
 }
 
 .news-card:hover {
@@ -169,85 +407,136 @@ body {
   padding: 15px;
 }
 
-.card-content h3 {
-  font-size: 18px;
-  margin-bottom: 10px;
+.news-content h3 {
+  font-size: 15px;
+  margin-bottom: 8px;
   color: #af1414;
 }
 
-
 .news-content p {
-  font-size: 14px;
+  font-size: 13px;
   color: #555;
 }
-.card-content a:hover{
-  background-color: #9a1518;
-}
-
 
 .news-content small {
   display: block;
-  margin-top: 10px;
+  margin-top: 8px;
   color: gray;
+  font-size: 12px;
 }
 
+/* ============================================
+   SECTION TITLES
+   ============================================ */
+/* FIX: replaced hardcoded margin-left px values with responsive approach */
+.section-title {
+  padding: 0 20px;
+  margin-top: 10px;
+}
 
+.section-title h2 {
+  font-size: 22px;
+  color: #222;
+  margin-top: 40px;
+  margin-bottom: 5px;
+  margin-left: 20px;
+}
 
-.card-container{
+.section-title.centered h2 {
+  text-align: center;
+  margin-left: 0;
+}
+
+/* ============================================
+   CARD GRID (தமிழ்நாடு section)
+   ============================================ */
+.card-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 20px;
+  padding: 0 10px;
 }
-.card{
-  width: 325px;
+
+.card {
+  width: 300px;
   background-color: #f0f0f0;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
-  margin: 20px;
-}
-.card:hover{
-  transform: translateY(-5px)
-}
-.card img{
-  width: 100%;
-  height: auto;
-}
-.card-content{
-  padding: 16px;
-}
-.card-content h3{
-  font-size: 28px;
-  margin-bottom: 8px;
-}
-.card-content p{
-  color: #666;
-  font-size: 15px;
-  line-height: 1.3;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 15px;
+  transition: transform 0.2s;
 }
 
-.card-content .btn{
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 14px;
+}
+
+.card-content h3 {
+  /* FIX: was 28px (too large), reduced to readable size */
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #af1414;
+  line-height: 1.4;
+}
+
+.card-content p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.card-content .btn {
   display: inline-block;
-  padding: 8px 16px;
+  padding: 7px 14px;
   background: linear-gradient(120deg, #ff2f2f, #6c0606);
   text-decoration: none;
   border-radius: 4px;
-  margin-top: 16px;
-  color:#fff;
+  margin-top: 12px;
+  color: #fff;
+  font-size: 13px;
+  transition: background 0.2s;
 }
 
+.card-content .btn:hover {
+  background: #9a1518;
+}
+
+/* ============================================
+   SECTION DIVIDER
+   ============================================ */
+.section-divider {
+  margin: 30px 20px;
+}
+
+.section-divider--top {
+  margin-top: 60px;
+}
+
+/* ============================================
+   SCROLL CONTAINER (புகார்பெட்டி)
+   ============================================ */
 .scroll-container {
-  width: 80%;        
-  height: 500px;       
-  overflow-y: scroll;   
+  width: calc(100% - 40px);
+  max-width: 900px;
+  height: 500px;
+  overflow-y: scroll;
   border: 3px solid white;
   border-radius: 10px;
   padding: 10px;
   background: white;
-  margin-left: 150px;
-  margin-top: 50px;
-  box-shadow: 0px 0px 15px 2px grey;
+  margin: 40px auto 0;
+  box-shadow: 0 0 15px 2px grey;
 }
 
 .scroll-content {
@@ -257,7 +546,6 @@ body {
 }
 
 .cardd {
-  border: 0px solid #ccc;
   padding: 10px;
   text-align: center;
   background: white;
@@ -271,460 +559,590 @@ body {
 .cardd p {
   margin-top: 8px;
   font-weight: bold;
+  font-size: 14px;
 }
 
-.complaint-box{
+/* ============================================
+   COMPLAINT BUTTONS
+   ============================================ */
+.complaint-box {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 20px;
   margin: 20px 0;
+  flex-wrap: wrap;
 }
-.cbox{
-  padding: 10px 20px;
-  background-color: center;
-  background:linear-gradient(120deg, #ff2f2f, #6c0606);
-  color:white ;
+
+.cbox, .cbox2 {
+  padding: 10px 24px;
+  color: white;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
+  transition: background 0.2s;
 }
-.cbox:hover{
-  background-color: #9a1518;
+
+.cbox {
+  background: linear-gradient(120deg, #ff2f2f, #6c0606);
 }
-.cbox2{
-  padding: 10px 20px;
-  background-color: center;
+
+.cbox:hover {
+  background: #9a1518;
+}
+
+.cbox2 {
   background-color: #d30d0d;
-  color:white ;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
 }
-.cbox2:hover{
+
+.cbox2:hover {
   background-color: #9a1518;
 }
 
-  
-
+/* ============================================
+   INSPIRATION / PLATFORMS SCROLL
+   ============================================ */
 .inspiration {
-  padding-block: 5rem;
-  background-color: var(--extra-light);
+  padding: 50px 0 40px;
+  background-color: #f9f9f9;
   overflow: hidden;
 }
 
-.inspiration :is(.section_header, .section_description) {
-  padding-inline: 1rem;
-  margin-bottom: 1rem;
+.section__header {
+  /* FIX: was margin-left: 300px — now centered */
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 0 20px;
+  margin-bottom: 10px;
+}
+
+.section__description {
+  /* FIX: was margin-left: 400px — now centered */
+  text-align: center;
+  padding: 0 20px 20px;
+  color: #666;
 }
 
 .inspiration__wrapper {
-  margin-top: 4rem;
+  margin-top: 30px;
   width: max-content;
   display: flex;
   align-items: center;
-  animation: scroll-left 20s linear infinite;
-  
+  animation: scroll-left 25s linear infinite;
 }
 
 .inspiration__card {
-  padding-inline: 1rem;
+  padding: 0 15px;
   text-align: center;
 }
 
 .inspiration__card img {
-  margin-bottom: 1rem;
-  max-width: 225px;
+  margin-bottom: 10px;
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
   border-radius: 50%;
-  border: 0.375rem solid var(--white);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border: 4px solid white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 .inspiration__card h4 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
-  color: var(--text-dark);
+  color: #222;
 }
 
 .inspiration__card p {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  color: var(--text-light);
+  color: #666;
 }
 
 @keyframes scroll-left {
-  to {
-    transform: translateX(calc(-50%));
-  }
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
+/* ============================================
+   ADVERTISEMENT TEXT
+   ============================================ */
+/* FIX: was padding-left: 700px — now centered */
+.advert-text {
+  text-align: center;
+  padding: 30px 20px 10px;
+  font-weight: 500;
+  color: #888;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ============================================
+   WEB STORIES (horizontal scroll)
+   ============================================ */
 .scroll-box {
-    height: 500px;
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    padding: 15px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    background: black;
-    border-radius: 12px;
-    box-shadow: 0px 0px 15px 2px grey;
-    margin-top: 70px;
-    margin-left: 80px;
-    margin-right: 80px;
-
-  }
-
-  .scroll-box::-webkit-scrollbar {
-    height: 10px;
-  }
-
-  .scroll-box::-webkit-scrollbar-thumb {
-    background: black;
-    border-radius: 6px;
-  }
-
-  .scroll-box::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-.trending-wrapper{
-  overflow: hidden;
-  padding: 10px;
-  background: white;
-  display: none;
-  margin-top: 20px;
-}
-
-.trending-list{
+  height: 420px;
   display: flex;
-  gap: 12px;
+  gap: 10px;
   overflow-x: auto;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-}
-
-.trending-list::-webkit-scrollbar{
-  display: none; /* hide scrollbar */
-}
-
-.trending-tag{
-  white-space: nowrap;
-  padding: 10px 5px;
-  border: 1px solid #ccc;
-  border-radius: 25px;
-  font-size: 10px;
-  color: black;
-  background: #fff;
-  cursor: pointer;
-  user-select: none;
-}
-
-.trending-tag.active{
-  border-radius:10px;
-  background:linear-gradient(180deg, #ff2f2f, #6c0606);
-  color: #fff;
-  border-color: #e53935;
-  position: relative;
-}
-
-/* arrow shape like Trending */
-.trending-tag.active::after{
-  content: '';
-  position: absolute;
-  right: -10px;
-  top: 50%;
-  transform: translateY(-50%);
-  border-left: 10px solid #e53935;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-}
-.fa-bars {
-  display:none; 
-  margin-top:0px; 
-  margin-left:20px; 
-  font-size:20px;
-}
-.fa-newspaper {
-  display: none;
-  margin-left:30px; 
-  margin-top:0px; 
-  font-size:20px;
-}
-.image11{
-  display: none;
-  width: 190px; 
-  margin-top:0px;
-  margin-bottom:10px; 
-  margin-left:30px;
-}
-.side-navbar{
-  background:linear-gradient(180deg, #ff2f2f, #6c0606) ;
-  width: 55%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: -55%;
   padding: 15px;
-  color: white;
-  z-index: 2;
-  transition: 1s;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  background: #111;
+  border-radius: 12px;
+  box-shadow: 0 0 15px 2px grey;
+  margin: 40px 40px 20px;
 }
-.side-navbar-link{
-  margin-bottom: 30px;
+
+.scroll-box::-webkit-scrollbar {
+  height: 8px;
 }
-.side-navbar-links a{
+
+.scroll-box::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 6px;
+}
+
+.scroll-box::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.card3 {
+  flex: 0 0 auto;
+  width: 220px;
+  height: 100%;
+  border-radius: 10px;
+  background: #eee;
+  overflow: hidden;
+  scroll-snap-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+.card3:hover {
+  transform: scale(1.02);
+}
+
+.card3 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ============================================
+   NEWS CATEGORY BOXES (3-column layout)
+   ============================================ */
+.tamilnews-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 40px;
+  padding: 0 20px;
+}
+
+.tamilnews-box {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 15px 2px rgba(148, 138, 138, 0.4);
+  width: 360px;
+  padding: 15px;
+  flex: 1 1 300px;
+  max-width: 420px;
+}
+
+.tamilnews-box h2 {
+  font-size: 17px;
+  margin-bottom: 10px;
+  color: #333;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.tamilnews-item {
+  margin-bottom: 15px;
+}
+
+.tamilnews-item img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.tamilnews-item h3 {
+  font-size: 15px;
+  margin: 8px 0 4px;
+  color: #222;
+  line-height: 1.4;
+}
+
+.tamilnews-item p {
+  font-size: 13px;
+  color: #666;
+}
+
+.tamilnews-item hr {
+  margin-top: 15px;
+  border-color: #eee;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 24px;
+  padding: 40px 40px 20px;
+  border-top: 1px solid #eee;
+  margin-left: 20px;
+}
+.footer img{
+  width: 200px;
+}
+
+.footer-content h3 {
+  margin-bottom: 16px;
+  font-size: 18px;
+  color: #d30d0d;
+}
+
+.footer-content ul {
+  list-style: none;
+}
+
+.footer-content ul li {
+  margin-bottom: 12px;
+}
+
+.footer-content ul li a {
   text-decoration: none;
-  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  color: #222;
+  transition: all 0.3s ease;
 }
-.side-navbar-links a:hover{
-  text-decoration: underline;
-}
-  @media screen and (max-width: 328px) {
 
-    .breakingnews{
-      margin-left: 80px;
-    }
-    .top-icons h3{
-      display: none;
-    }
-    .animated-text{
-      display: none;
-    }
-    .top-navbar-container{
-      display: none;
-    }
-    .top-navbar{
-      visibility: hidden;
-    }
-    .epaperimg{
-      display: none;
-    }
-    .fa-bars{
-      display:;
-    }
-    .fa-newspaper{
-      display: ;
-    }
-    .change {
-      
-      display:none;
-    }
-    .image11{
-      display: block;
-    }
-    .logo img{
-      width: 30px;
-      
-    }
-    .app-logo-img {
-      display: none;
-    }
-    .scroll-box {
-      margin-left:35px ;
-      margin-right: 35px;
-    }
-    .webstories h2{
-      margin-right: 1050px;
-      margin-left: 0;
-      margin-top: 0px;
-    }
-    .nav-links{
-      display:none ;
-      
-    }
-    .navbar{
-      position:static;
-      padding-top: 5px;
-      padding-bottom: 5px;
-    }
-    .logo span{
-      display: none;
-    }
-    .scroll-container{
-      margin-left: 35px;
-      margin-right: 40px;
-    }
-    .pugarpetti{
-     left: -10px;
-    }
-    .search-box{
-    
-      border-radius: 50%;
-    }
-    .search-box #searchInput{
-      display: none;
-      
-    }
-    .h2title{
-      margin-left: 50px;
-    }
-    .h2title2{
-      margin-left: -590px;
-      margin-bottom: 50px;
-    }
-    .section__header {
-      margin-left: -300px;
-      
-    }
-    .trending-wrapper{
-      display: block;
-    }
-    .navbar{
-      padding: 5px;
-    }
-    .cbox2{
-      display: none;
-    }
-    .inspiration{
-      display: none;
-    }
-    .footer-content img{
-      margin-left: 20px;
-    }
-    .footer-content-logo li{
-      margin-left: 10px;
-    }
-    .lasthead{
-      margin-left: 20px;
-    }
-    .footer-content2{
-      display: none;
-    }
-    .laptopend{
-      display: none;
-    }
-   
+.footer-content ul li a:hover {
+  transform: translateX(-4px);
+  color: red;
+  display: inline-block;
+}
+
+.footer-logo {
+  width: 160px;
+  margin-bottom: 12px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.footer-social a {
+  font-size: 22px;
+  color: #333;
+  transition: color 0.2s;
+}
+
+.footer-social a:hover {
+  color: #d30d0d;
+}
+
+/* ============================================
+   FOOTER BOTTOM
+   ============================================ */
+.footer-bottom {
+  background: #f5f5f5;
+  padding: 20px 40px;
+  text-align: center;
+  font-size: 13px;
+  color: #555;
+}
+
+.footer-bottom p {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.footer-bottom hr {
+  margin: 12px 0;
+  border-color: #ddd;
+}
+
+.footer-bottom .copyright {
+  font-size: 12px;
+  color: #888;
+}
+
+/* ============================================
+   TABLET — max-width: 1024px
+   ============================================ */
+@media screen and (max-width: 1024px) {
+  .top-icons h3 {
+    font-size: 12px;
   }
 
-  .card3 {
-    flex: 0 0 auto;
+  .animated-text {
+    font-size: 16px;
+    min-width: 160px;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-links li a {
+    font-size: 13px;
+  }
+
+  .search-box input {
+    width: 130px;
+  }
+
+  .epaperimg {
+    margin-left: 30px;
+    height: 50px;
+  }
+
+  .change {
+    margin-left: 40px;
+    height: 75px;
+  }
+
+  .app-logo-img img {
+    height: 32px;
+  }
+
+  .tamilnews-box {
+    max-width: 360px;
+  }
+
+  .scroll-box {
+    margin: 30px 20px 20px;
+  }
+
+  .card {
     width: 260px;
-    height: 100%;
-    border-radius: 10px;
-    background: #eee;
-    overflow: hidden;
-    scroll-snap-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   }
 
-  .card3 img {
+  .footer {
+    padding: 30px 20px 15px;
+  }
+}
+
+/* ============================================
+   MOBILE — max-width: 768px
+   ============================================ */
+@media screen and (max-width: 768px) {
+
+  /* --- Top Navbar --- */
+  .top-navbar {
+    display: none; /* hidden on mobile — hamburger replaces it */
+  }
+
+  /* --- Logo area restructure --- */
+  .logo_img_top {
+    margin-top: 10px;
+    padding: 8px 12px;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+
+  .epaperimg,
+  .change,
+  .app-logo-img {
+    display: none;
+  }
+
+  .mobile-header {
+    /* FIX: was display:; (invalid) — now correct */
+    display: flex;
+    align-items: center;
+    gap: 12px;
     width: 100%;
-    height: 100%;
-   
+    justify-content: space-between;
+  }
+
+  .image11 {
+    width: 140px;
+  }
+
+  /* --- Navbar --- */
+  .navbar {
+    border-radius: 12px;
+    padding: 8px 12px;
+    margin: 6px;
+    gap: 8px;
+  }
+
+  .logo span {
+    display: none;
+  }
+
+  .nav-links {
+    display: none; /* hidden on mobile; open via side-navbar */
+  }
+
+  .search-box input {
+    display: none;
+  }
+
+  .search-box button {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* --- Trending wrapper (mobile only) --- */
+  .trending-wrapper {
     display: block;
   }
 
-  .card3 img:hover{
-    transform: translateY(-5px)
-    
+  /* --- Breaking News --- */
+  .breakingnews {
+    margin-left: 20px;
+    font-size: 18px;
   }
 
-.tamilnews-container {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 60px;
-      width: 100%;
-    }
+  /* --- Section titles --- */
+  .section-title h2 {
+    margin-left: 10px;
+    font-size: 18px;
+  }
 
-    .tamilnews-box {
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0px 0px 15px 2px rgb(148, 138, 138);
-      width: 400px;
-      padding: 15px;
+  /* --- Card container --- */
+  .card {
+    width: calc(100% - 20px);
+    margin: 10px;
+  }
 
-    }
+  /* --- Scroll container --- */
+  .scroll-container {
+    width: calc(100% - 30px);
+    height: 400px;
+    margin: 30px auto 0;
+  }
 
-    .tamilnews-box h2 {
-      font-size: 18px;
-      margin-bottom: 10px;
-      color: #333;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 5px;
-    }
+  /* --- Inspiration --- */
+  .inspiration {
+    padding: 30px 0 20px;
+  }
 
-    .tamilnews-item {
-      margin-bottom: 15px;
-    }
+  /* --- Advertisement text --- */
+  .advert-text {
+    padding: 20px 10px 5px;
+  }
 
-    .tamilnews-item img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 6px;
-    }
+  /* --- Web stories scroll --- */
+  .scroll-box {
+    margin: 20px 10px;
+    height: 320px;
+  }
 
-    .tamilnews-item h3 {
-      font-size: 16px;
-      margin: 8px 0 5px;
-      color: #222;
-    }
+  .card3 {
+    width: 160px;
+  }
 
-    .tamilnews-item p {
-      font-size: 14px;
-      color: #666;
-    }
+  /* --- Tamil news boxes --- */
+  .tamilnews-container {
+    padding: 0 10px;
+    gap: 16px;
+    margin-top: 20px;
+  }
 
+  .tamilnews-box {
+    width: 100%;
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
 
-    section{
-      padding: 80px 13% 70px;
-    }
-    .footer{
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, auto));
-      gap: 1.5rem;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    }
-    .footer-content h3{
-      margin-bottom: 1.5rem;
-      font-size: 20px;
-      color: #d30d0d;
-    }
-    .footer-content li{
-      margin-bottom: 16px;
-      list-style: none;
-    }
-    .footer-content li a{
-      text-decoration: none;
-      display: block;
-      font-size: 15px;
-      font-weight: 400;
-      transition: all .40s ease;
-      color: #222;
-    }
-    .footer-content li a:hover{
-      transform: translateY(-3px) translateX(-5px);
-      color:red;
-    }
-    .footer-content p{
-      
-      font-size: 16px;
-      line-height: 30px;
-      margin: 20px 0;
-    }
-    .icons a{
-      display: inline-block;
-      font-size: 22px;
-      margin-right:17px ;
-      transition: all .40s ease;
-    }
+  /* --- Complaint buttons --- */
+  .cbox2 {
+    display: none;
+  }
 
-    .bottom-text{
-      margin-left: 7px; 
-      font-size:13px; 
-      font-weight:500; 
-     
-    }
-    .footerr{
-      font-size: 10px; 
-      font-weight:400px; 
-      margin-left:20px; 
-      color:black; 
-    }
+  /* --- Footer --- */
+  .footer {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 24px 16px;
+  }
+
+  .footer-logo {
+    width: 120px;
+  }
+
+  .footer-social a {
+    font-size: 20px;
+  }
+
+  /* --- Footer bottom --- */
+  .footer-bottom {
+    padding: 16px;
+    font-size: 12px;
+  }
+
+  /* --- News container --- */
+  .news-container {
+    grid-template-columns: 1fr;
+    padding: 8px 12px;
+  }
+  .mobile-header{
+    justify-content:space-around;
+  }
+  .mobile-header img{
+    width: 150px;
+  }
+  .navbar {
+    border-radius: 50px;
+  }
+}
+
+/* ============================================
+   EXTRA SMALL MOBILE — max-width: 480px
+   ============================================ */
+@media screen and (max-width: 480px) {
+
+  .footer {
+    grid-template-columns: 1fr;
+  }
+
+  .scroll-box {
+    height: 260px;
+  }
+
+  .card3 {
+    width: 130px;
+  }
+
+  .section__header {
+    font-size: 16px;
+  }
+
+  .tamilnews-item img {
+    height: 160px;
+  }
+
+  .inspiration__card img {
+    width: 120px;
+    height: 120px;
+  }
+  .mobile-header{
+    justify-content:space-around;
+  }
+  .mobile-header img{
+    width: 150px;
+  }
+  .navbar {
+    border-radius: 50px;
+  }
+}
   
